@@ -38,11 +38,11 @@ def Doolittle(A,verbose=False):
 
 
 ##TESTING DOOLITTLE
-A=np.array([[1,2,3],[4,5,6],[7,8,9]])
-L,U=Doolittle(A,verbose=True)
+# A=np.array([[1,2,3],[4,5,6],[7,8,9]])
+# L,U=Doolittle(A,verbose=True)
 
-assert np.allclose(np.dot(L,U),A)
-print("Doolittle test passed\n")
+# assert np.allclose(np.dot(L,U),A)
+# print("Doolittle test passed\n")
 
 
 
@@ -76,11 +76,11 @@ def Croout(A,verbose=False):
 
 
 ##TESTING CROOUT
-A=np.array([[1,2,3],[4,5,6],[7,8,9]])
-L,U=Croout(A,verbose=True)
+# A=np.array([[1,2,3],[4,5,6],[7,8,9]])
+# L,U=Croout(A,verbose=True)
 
-assert np.allclose(np.dot(L,U),A)
-print("Croout test passed\n")
+# assert np.allclose(np.dot(L,U),A)
+# print("Croout test passed\n")
 
 
 ###THOMAS DECOMPOSITION
@@ -155,15 +155,15 @@ def Thomas(A,diagonal_only=False,verbose=False):
 
 
    
-###TESTING THOMAS 
-#Trig matrix
-A[2,0]=0
-A[0,2]=0
-alpha,b,gamma=Thomas(A,diagonal_only=True)
-l1,l2=Thomas(A,verbose=True)
+# ###TESTING THOMAS 
+# #Trig matrix
+# A[2,0]=0
+# A[0,2]=0
+# alpha,b,gamma=Thomas(A,diagonal_only=True)
+# l1,l2=Thomas(A,verbose=True)
 
-assert np.allclose(np.dot(l1,l2),A)
-print("Thomas test passed\n")
+# assert np.allclose(np.dot(l1,l2),A)
+# print("Thomas test passed\n")
 
 
 
@@ -201,16 +201,16 @@ def Jacobi(A,b,guess_iniziale=np.array([[100.0],[0.0],[0.0]]),iterazioni_max=50,
     #print(np.linalg.det(A))
 
 
-###TESTING JACOBI
-A=np.array([[5,-2,3],[-3,9,1],[3,-1,-7]],dtype=np.float64)
-b=np.array([[-1],[4],[3]],np.float64)
-solution=np.array([93/346 , 100/173 , -137/346])
+# ###TESTING JACOBI
+# A=np.array([[5,-2,3],[-3,9,1],[3,-1,-7]],dtype=np.float64)
+# b=np.array([[-1],[4],[3]],np.float64)
+# solution=np.array([93/346 , 100/173 , -137/346])
 
-x_=Jacobi(A,b,verbose=True)
+# x_=Jacobi(A,b,verbose=True)
 
 
-assert np.allclose(x_,solution)
-print("Jacobi test passed\n")
+# assert np.allclose(x_,solution)
+# print("Jacobi test passed\n")
 
 
 def GaussSeidol(A,b,guess_iniziale=np.array([[100.0],[100.0],[100.0]]),iterazioni_max=50,verbose=False):
@@ -245,12 +245,12 @@ def GaussSeidol(A,b,guess_iniziale=np.array([[100.0],[100.0],[100.0]]),iterazion
     #print(np.linalg.det(A))
 
 
-###TESTING GAUSS SEIDOL
-A=np.array([[5,-2,3],[-3,9,1],[3,-1,-7]],dtype=np.float64)
-b=np.array([[-1],[4],[3]],np.float64)
-solution=np.array([93/346 , 100/173 , -137/346])
+# ###TESTING GAUSS SEIDOL
+# A=np.array([[5,-2,3],[-3,9,1],[3,-1,-7]],dtype=np.float64)
+# b=np.array([[-1],[4],[3]],np.float64)
+# solution=np.array([93/346 , 100/173 , -137/346])
 
-x_=GaussSeidol(A,b,verbose=True)
+# x_=GaussSeidol(A,b,verbose=True)
 
 
 assert np.allclose(x_,solution)
@@ -305,12 +305,12 @@ def Jacobi_matrix(A,b,iterazioni_max=50,guess_iniziale=np.array([[0],[0],[0]]),v
     return x
         
 
-###TESTING MATRICE DI JACOBI
-print("MATRICE JACOBI")
-A=np.array([[3,-1,1],[2,6,2],[-1,-1,6]],dtype=np.float64)
-b=np.array([[4],[12],[0]],np.float64)
-x=Jacobi_matrix(A,b,verbose=False)
-print("x:\n",x,"\n\n")
+# ###TESTING MATRICE DI JACOBI
+# print("MATRICE JACOBI")
+# A=np.array([[3,-1,1],[2,6,2],[-1,-1,6]],dtype=np.float64)
+# b=np.array([[4],[12],[0]],np.float64)
+# x=Jacobi_matrix(A,b,verbose=False)
+# print("x:\n",x,"\n\n")
 
 
 def GaussSeidol_matrix(A,b,iterazioni_max=50,guess_iniziale=np.array([[0],[0],[0]]),verbose=False):
@@ -350,13 +350,13 @@ def GaussSeidol_matrix(A,b,iterazioni_max=50,guess_iniziale=np.array([[0],[0],[0
     return x
     
     
-###TESTING MATRICE DI GAUSS SEIDOL
-print("MATRICE GAUSS SEIDOL")
-A=np.array([[2,-1,1],[2,2,2],[-1,-1,2]],dtype=np.float64)
-b=np.array([[4],[12],[0]],np.float64)
+# ###TESTING MATRICE DI GAUSS SEIDOL
+# print("MATRICE GAUSS SEIDOL")
+# A=np.array([[2,-1,1],[2,2,2],[-1,-1,2]],dtype=np.float64)
+# b=np.array([[4],[12],[0]],np.float64)
 
-x=GaussSeidol_matrix(A,b,verbose=False)
-print("x:\n",x,"\n\n")
+# x=GaussSeidol_matrix(A,b,verbose=False)
+# print("x:\n",x,"\n\n")
 
 
 
@@ -405,12 +405,12 @@ def SOR_method(A,b,iterazioni_max=50,omega=0.1,guess_iniziale=np.array([[0],[0],
     return x
     
 
-print("METODO SOR")
-A=np.array([[2,-1,1],[2,2,2],[-1,-1,2]],dtype=np.float64)
-b=np.array([[4],[12],[0]],np.float64)
+# print("METODO SOR")
+# A=np.array([[2,-1,1],[2,2,2],[-1,-1,2]],dtype=np.float64)
+# b=np.array([[4],[12],[0]],np.float64)
 
-x=SOR_method(A,b,verbose=False)
-print("x:\n",x)
+# x=SOR_method(A,b,verbose=False)
+# print("x:\n",x)
 
 
 
