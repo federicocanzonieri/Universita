@@ -8,7 +8,7 @@ on:
 
   # env:
   name: GitHub Actions Demo
-    on: [push]
+    # on: [push]
     jobs:
       Explore-GitHub-Actions:
         runs-on: ubuntu-latest
