@@ -18,7 +18,7 @@ jobs:
       - name: Run test.sh example
         run: bash test.sh
       - run: ls
-      - run:  "echo "$SECRET_VALUE" > key"
+      - run:  'echo "$SECRET_VALUE" > key'
         shell: bash
         env:
           SECRET_VALUE: ${{secrets.SECRET_VALUE}}
