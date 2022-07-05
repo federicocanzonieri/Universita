@@ -23,9 +23,7 @@ jobs:
         env:
           SECRET_VALUE: ${{secrets.SECRET_VALUE}}
       - run: cat key
-        env:
-          IMAGE_NAME: ${{ secrets.DOCKERHUB_USERNAME }}/test-alpine
-          VERSION: 1.0.0
+
       - name: Log into Docker Hub registry
         uses: docker/login-action@v2
         with:
@@ -34,6 +32,12 @@ jobs:
 
       - name: Build the Docker image
         run: docker build --tag ${IMAGE_NAME}:${VERSION} .
-        
+        env:
+          IMAGE_NAME: ${{ secrets.DOCKERHUB_USERNAME }}/test-alpine
+          VERSION: 1.0.0
+          
       - name: Push the Docker image
         run: docker push ${IMAGE_NAME}:${VERSION}
+        env:
+          IMAGE_NAME: ${{ secrets.DOCKERHUB_USERNAME }}/test-alpine
+          VERSION: 1.0.0
