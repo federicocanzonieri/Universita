@@ -37,4 +37,4 @@ jobs:
         run: docker build -t alpine .
         
       - name: Push the Docker image
-        run: docker push ${IMAGE_NAME}:${VERSION}
+        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/alpine
