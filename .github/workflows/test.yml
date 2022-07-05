@@ -20,7 +20,7 @@ jobs:
         env:
           TEST_GITHUB_TOKEN: ${{ secrets.DOCKERHUB_USERNAME }}
           TEST_SECRET: aonna
-          IMAGE_NAME: alpine-test
+          IMAGE_NAME: ${{ secrets.DOCKERHUB_USERNAME }}/alpine-test
           VERSION: 1.0.0
         run: |
           echo ${#TEST_GITHUB_TOKEN}
@@ -34,7 +34,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
       - name: Build the Docker image
-        run: docker build --tag "${IMAGE_NAME}" .
+        run: docker build --tag ${IMAGE_NAME} .
         
       - name: Push the Docker image
         run: docker push ${IMAGE_NAME}:${VERSION}
