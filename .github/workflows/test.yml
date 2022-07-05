@@ -1,26 +1,30 @@
-name: GitHub Actions Demo
-on: [push]
+name: Docker Publish
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+env:
+  IMAGE_NAME: ${{ secrets.DOCKERHUB_USERNAME }}/alpine
+  VERSION: 1.0.0
+
 jobs:
-  Explore-GitHub-Actions:
+  package:
+    runs-on: ubuntu-latest
+
+ push-image:
+    needs: [package]
     runs-on: ubuntu-latest
     steps:
-      login:
-        - name: Log into Docker Hub registry
-          uses: docker/login-action@v2
-          with:
-            username: ${{ secrets.DOCKERHUB_USERNAME }}
-            password: ${{ secrets.DOCKERHUB_PASSWORD }}
-
-      build:
-        - name: Build the Docker image
-          run: docker build --tag ${IMAGE_NAME}:${VERSION} .
-          env:
-            IMAGE_NAME: ${{ secrets.DOCKERHUB_USERNAME }}/test-alpine
-            VERSION: 1.0.0
-
-      push:
-        - name: Push the Docker image
-          run: docker push ${IMAGE_NAME}:${VERSION}
-          env:
-            IMAGE_NAME: ${{ secrets.DOCKERHUB_USERNAME }}/test-alpine
-            VERSION: 1.0.0
+      - name: Log into Docker Hub registry
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+      
+      - name: Build the Docker image
+        run: docker build --tag ${IMAGE_NAME}:${VERSION} .
+        
+      - name: Push the Docker image
+        run: docker push ${IMAGE_NAME}:${VERSION}
