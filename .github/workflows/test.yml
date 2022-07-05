@@ -21,7 +21,7 @@ jobs:
           TEST_GITHUB_TOKEN: ${{ secrets.DOCKERHUB_USERNAME }}
           TEST_SECRET: aonna
           IMAGE_NAME: alpine-test
-          VERSION: 1.0.0.
+          VERSION: 1.0.0
         run: |
           echo ${#TEST_GITHUB_TOKEN}
           echo ${#TEST_SECRET}
