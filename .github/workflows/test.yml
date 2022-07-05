@@ -34,7 +34,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
       - name: Build the Docker image
-        run: docker build -t ${IMAGE_NAME} .
+        run: docker build -t alpine .
         
       - name: Push the Docker image
         run: docker push ${IMAGE_NAME}:${VERSION}
