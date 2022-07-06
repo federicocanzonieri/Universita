@@ -28,8 +28,10 @@ jobs:
 
       - name: Setup and run Dir tests
         working-directory: ./app
-      - run: ls
+        run: |
+          ls
 
+      - run: ls
       - name: Login to DockerHub
         uses: docker/login-action@v1
         with:
