@@ -25,8 +25,8 @@ jobs:
         with:
           name: file
           path: file.txt
-      
-      - run: cd Algoritmi
+
+        working-directory: ./Algoritmi
       - run: ls
 
       - name: Login to DockerHub
