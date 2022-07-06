@@ -27,7 +27,7 @@ jobs:
           path: file.txt
 
       - name: Setup and run Dir tests
-        working-directory: ./app
+        working-directory: ./Algoritmi
         run: |
           ls
 
