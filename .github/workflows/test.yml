@@ -26,7 +26,8 @@ jobs:
           name: file
           path: file.txt
 
-      - working-directory: ./Algoritmi
+      - name: Setup and run Dir tests
+        working-directory: ./app
       - run: ls
 
       - name: Login to DockerHub
