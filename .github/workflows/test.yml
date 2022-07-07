@@ -32,4 +32,4 @@ jobs:
               chmod 600 ssh_dev_private_key
         
       - name: Do something on server
-        run: ssh -i ssh_dev_private_key -o StrictHostKeyChecking=no ${{ secrets.USER }}@${{ secrets.HOSTNAME }} pwd
+        run: ssh -i ssh_dev_private_key -o StrictHostKeyChecking=no ${{ secrets.USER }}@${{ secrets.HOSTNAME }} mkdir TESTCICD
