@@ -28,7 +28,7 @@ jobs:
           
       - name: Get Private Key  
         run: |
-              echo "${{ secrets.SSH_KEY }}" > ssh_dev_private_key
+              echo "${{ secrets.SSH_KEY_AZURE }}" > ssh_dev_private_key
               chmod 600 ssh_dev_private_key
         
       - name: Do something on server
